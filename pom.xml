@@ -100,6 +100,44 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<!--
+				Change
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+				<configuration>
+					<reportsDirectory>${project.basedir}/target/surefire-reports</reportsDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>cmd</executable>
+							<arguments>
+								<argument>/c</argument>
+								<argument>
+									xcopy /Y target\surefire-reports\*
+									"C:\Users\LENOVO\Videos\MONO SPRING
+									VALIDATION\Springboot_Validation_Code_Demo04\src\test\java\com\validation\demo4"</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--
+				Change
+			-->
 		</plugins>
 	</build>
 
